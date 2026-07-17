@@ -2,33 +2,83 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A synthetic-data portfolio prototype for reconstructing post-BCG NMIBC trial prescreening evidence and timing windows."
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="A synthetic-data portfolio prototype for reconstructing post-BCG NMIBC trial prescreening evidence and timing windows." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="BCG-Clock" />
     <meta property="og:title" content="BCG-Clock | NMIBC Prescreening Evidence Coordinator" />
-    <meta
-      property="og:description"
-      content="A synthetic-data portfolio prototype for reconstructing post-BCG NMIBC trial prescreening evidence and timing windows."
-    />
+    <meta property="og:description" content="A synthetic-data portfolio prototype for reconstructing post-BCG NMIBC trial prescreening evidence and timing windows." />
     <meta property="og:url" content="https://fubzei.github.io/bcg-clock/" />
     <meta property="og:image" content="https://fubzei.github.io/bcg-clock/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="BCG-Clock | NMIBC Prescreening Evidence Coordinator" />
-    <meta
-      name="twitter:description"
-      content="A synthetic-data portfolio prototype for reconstructing post-BCG NMIBC trial prescreening evidence and timing windows."
-    />
+    <meta name="twitter:description" content="A synthetic-data portfolio prototype for reconstructing post-BCG NMIBC trial prescreening evidence and timing windows." />
     <meta name="twitter:image" content="https://fubzei.github.io/bcg-clock/og.png" />
+    <meta name="theme-color" content="#0b2b43" />
     <link rel="icon" type="image/svg+xml" href="/bcg-clock/favicon.svg" />
     <title>BCG-Clock | NMIBC Prescreening Evidence Coordinator</title>
     <script type="module" crossorigin src="/bcg-clock/assets/index-DAcWL3LG.js"></script>
     <link rel="stylesheet" crossorigin href="/bcg-clock/assets/index-B47AjnoY.css">
+    <style>
+      html,body,#root{width:100%;max-width:100%;overflow-x:hidden}
+      body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+      .company-workflow{border:1px solid #cbd5db;background:#fff;padding:18px 20px;box-shadow:0 2px 12px #172b3a0a}
+      .company-workflow__head{margin-bottom:14px}
+      .company-workflow__eyebrow{font-family:"Cascadia Mono","SFMono-Regular",Consolas,monospace;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#56707f;margin-bottom:4px}
+      .company-workflow__head h2{margin:0 0 4px;font-size:18px;color:#0d2230}
+      .company-workflow__head p{margin:0;color:#52636f;font-size:13px;max-width:850px}
+      .company-workflow__grid{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1.15fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:stretch}
+      .company-workflow__step{border:1px solid #cbd5db;background:#f8fafb;padding:14px;min-height:132px}
+      .company-workflow__step.active{border:2px solid #0b7180;background:#edf8f8;padding:13px}
+      .company-workflow__tag{display:inline-block;margin-bottom:8px;padding:2px 7px;border:1px solid #0b7180;color:#0b5d68;background:#fff;font-family:"Cascadia Mono","SFMono-Regular",Consolas,monospace;font-size:9px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+      .company-workflow__step strong{display:block;margin-bottom:5px;font-size:14px;color:#0d2230}
+      .company-workflow__step span{display:block;color:#52636f;font-size:12px;line-height:1.45}
+      .company-workflow__step small{display:block;margin-top:8px;color:#6a7881;font-size:10px;line-height:1.4}
+      .company-workflow__arrow{display:grid;place-items:center;color:#82919a;font-size:22px}
+      .company-workflow__foot{border-top:1px solid #dce3e7;margin-top:14px;padding-top:11px;color:#344955;font-size:12px}
+      .company-workflow__foot strong{color:#0b5d68}
+      @media(max-width:760px){
+        .app-header{width:100%;min-height:0;padding:12px 15px;display:block}
+        .brand-lockup{width:100%}
+        .header-metadata{width:100%;justify-content:flex-start;gap:8px 12px;flex-wrap:wrap;margin-top:14px;font-size:10px}
+        .header-metadata span+span{padding-left:12px}
+        .safety-banner{width:100%;padding:9px 15px;line-height:1.45}
+        .app-shell{display:block;width:100%;min-width:0;min-height:0}
+        .left-rail{width:100%;min-width:0;border-right:0;border-bottom:1px solid #cbd5db;padding:14px 15px 18px}
+        .primary-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-bottom:14px;padding-bottom:10px}
+        .primary-nav button{display:block;text-align:center;padding:9px 5px;min-width:0}
+        .primary-nav button span{display:none}
+        .patient-list{max-height:214px}
+        .rail-actions{grid-template-columns:1fr 1fr}
+        .rail-actions .text-button{grid-column:1/-1}
+        .privacy-note{max-width:100%}
+        .main-content{width:100%;min-width:0;padding:20px 13px 42px}
+        .content-stack{gap:20px}
+        .content-stack>[role="status"],.content-stack>.status-message,.content-stack>.notice{margin-bottom:2px}
+        .page-title-row{display:block}
+        .page-title-row h1{font-size:25px;line-height:1.16;margin-bottom:9px}
+        .page-title-row p:last-child{font-size:14px;line-height:1.5}
+        .operational-summary{grid-template-columns:1fr}
+        .operational-summary article{min-height:76px}
+        .operational-summary article+article{border-left:0;border-top:1px solid #cbd5db}
+        .company-workflow{padding:16px 14px}
+        .company-workflow__head h2{font-size:17px}
+        .company-workflow__grid{grid-template-columns:1fr;gap:0}
+        .company-workflow__step{min-height:0;padding:13px}
+        .company-workflow__step.active{padding:12px}
+        .company-workflow__arrow{height:30px;transform:rotate(90deg)}
+        .patient-header,.assessment-topline,.section-heading,.compact-heading{align-items:flex-start;flex-direction:column}
+        .patient-overview,.evidence-section,.validation-card,.source-registry,.limitations,.entry-panel{width:100%;max-width:100%}
+        .case-form{grid-template-columns:1fr}
+        .case-form .checkbox-label{grid-column:1}
+        table{max-width:100%}
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (()=>{const buildWorkflow=()=>{const stack=document.querySelector('.content-stack');const title=document.querySelector('.page-title-row');if(!stack||!title||document.querySelector('.company-workflow'))return false;const section=document.createElement('section');section.className='company-workflow';section.setAttribute('aria-labelledby','company-workflow-title');section.innerHTML=`<div class="company-workflow__head"><div class="company-workflow__eyebrow">Company workflow placement</div><h2 id="company-workflow-title">Where BCG-Clock operates</h2><p>BCG-Clock sits between fragmented clinical documentation and downstream trial-matching or AI systems, preparing a traceable evidence record before automated inference begins.</p></div><div class="company-workflow__grid"><div class="company-workflow__step"><strong>Clinical source systems</strong><span>EHR notes, pathology, BCG administration records, labs, imaging, and procedure documentation.</span><small>Fragmented and not yet adjudicated</small></div><div class="company-workflow__arrow" aria-hidden="true">›</div><div class="company-workflow__step active"><span class="company-workflow__tag">This application</span><strong>BCG-Clock evidence coordination</strong><span>Reconstructs treatment chronology, checks timing windows, identifies missing or conflicting evidence, and retains source provenance.</span><small>Deterministic · auditable · before AI</small></div><div class="company-workflow__arrow" aria-hidden="true">›</div><div class="company-workflow__step"><strong>Downstream technology</strong><span>Trial-matching platforms, CTMS worklists, analytics, and AI-assisted candidate ranking.</span><small>Receives bounded, structured evidence</small></div><div class="company-workflow__arrow" aria-hidden="true">›</div><div class="company-workflow__step"><strong>Human adjudication</strong><span>Clinical coordinators and investigators confirm referral, eligibility, follow-up, and enrollment decisions.</span><small>Final judgment remains human</small></div></div><div class="company-workflow__foot"><strong>Operational role:</strong> evidence preparation and prescreening support, not diagnosis or autonomous eligibility determination.</div>`;title.insertAdjacentElement('afterend',section);return true};if(!buildWorkflow()){const observer=new MutationObserver(()=>{if(buildWorkflow())observer.disconnect()});observer.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>observer.disconnect(),10000)}})();
+    </script>
   </body>
 </html>

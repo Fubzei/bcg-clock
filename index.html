@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
     <meta name="description" content="A synthetic-data portfolio prototype for reconstructing post-BCG NMIBC trial prescreening evidence and timing windows." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="BCG-Clock" />
@@ -20,8 +20,13 @@
     <script type="module" crossorigin src="/bcg-clock/assets/index-DAcWL3LG.js"></script>
     <link rel="stylesheet" crossorigin href="/bcg-clock/assets/index-B47AjnoY.css">
     <style>
-      html,body,#root{width:100%;max-width:100%;overflow-x:hidden}
+      html,body,#root{width:100%;max-width:100%;min-width:0;overflow-x:hidden}
+      html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+      *,*::before,*::after{min-width:0}
+      img,svg,canvas{max-width:100%;height:auto}
+      p,span,strong,small,td,th,label{overflow-wrap:anywhere}
+      input,select,textarea,button{font-size:16px}
       .company-workflow{border:1px solid #cbd5db;background:#fff;padding:18px 20px;box-shadow:0 2px 12px #172b3a0a}
       .company-workflow__head{margin-bottom:14px}
       .company-workflow__eyebrow{font-family:"Cascadia Mono","SFMono-Regular",Consolas,monospace;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#56707f;margin-bottom:4px}
@@ -38,40 +43,66 @@
       .company-workflow__foot{border-top:1px solid #dce3e7;margin-top:14px;padding-top:11px;color:#344955;font-size:12px}
       .company-workflow__foot strong{color:#0b5d68}
       @media(max-width:760px){
-        .app-header{width:100%;min-height:0;padding:12px 15px;display:block}
-        .brand-lockup{width:100%}
-        .header-metadata{width:100%;justify-content:flex-start;gap:8px 12px;flex-wrap:wrap;margin-top:14px;font-size:10px}
-        .header-metadata span+span{padding-left:12px}
-        .safety-banner{width:100%;padding:9px 15px;line-height:1.45}
-        .app-shell{display:block;width:100%;min-width:0;min-height:0}
-        .left-rail{width:100%;min-width:0;border-right:0;border-bottom:1px solid #cbd5db;padding:14px 15px 18px}
-        .primary-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-bottom:14px;padding-bottom:10px}
-        .primary-nav button{display:block;text-align:center;padding:9px 5px;min-width:0}
+        body{font-size:14px}
+        .app-frame,.app-shell,.main-content,.content-stack{width:100%;max-width:100%;min-width:0}
+        .app-header{width:100%;min-height:0;padding:11px 13px;display:block}
+        .brand-lockup{width:100%;gap:10px}
+        .brand-mark{width:38px;height:38px;flex:0 0 38px}
+        .brand-lockup strong{font-size:17px}
+        .brand-lockup span:last-child{font-size:11px}
+        .header-metadata{width:100%;justify-content:flex-start;gap:6px 10px;flex-wrap:wrap;margin-top:10px;font-size:9px;line-height:1.35}
+        .header-metadata span+span{padding-left:10px}
+        .safety-banner{width:100%;padding:8px 12px;line-height:1.4;font-size:11px;text-align:left;justify-content:flex-start}
+        .app-shell{display:block;min-height:0}
+        .left-rail{width:100%;border-right:0;border-bottom:1px solid #cbd5db;padding:10px 12px 12px;overflow:hidden}
+        .primary-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;margin:0 0 10px;padding-bottom:9px}
+        .primary-nav button{display:block;text-align:center;padding:8px 3px;min-height:38px;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
         .primary-nav button span{display:none}
-        .patient-list{max-height:214px}
-        .rail-actions{grid-template-columns:1fr 1fr}
-        .rail-actions .text-button{grid-column:1/-1}
-        .privacy-note{max-width:100%}
-        .main-content{width:100%;min-width:0;padding:20px 13px 42px}
-        .content-stack{gap:20px}
-        .content-stack>[role="status"],.content-stack>.status-message,.content-stack>.notice{margin-bottom:2px}
+        .rail-heading{align-items:center}
+        .rail-heading h2{font-size:14px}
+        .search-label{margin:10px 0 8px}
+        .search-label input{min-height:40px}
+        .patient-list{display:flex;gap:7px;max-height:none;width:100%;overflow-x:auto;overflow-y:hidden;padding:0 0 7px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+        .patient-row{flex:0 0 158px;width:158px;min-height:62px;padding:8px;scroll-snap-align:start}
+        .rail-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px;padding-top:10px}
+        .rail-actions .button{min-height:40px;padding:8px;font-size:12px}
+        .rail-actions .text-button{grid-column:1/-1;min-height:34px;text-align:center}
+        .privacy-note{display:none}
+        .main-content{padding:16px 11px calc(36px + env(safe-area-inset-bottom))}
+        .content-stack{gap:16px}
+        .content-stack>[role="status"],.content-stack>.status-message,.content-stack>.notice{margin:0 0 2px;padding:9px 11px}
         .page-title-row{display:block}
-        .page-title-row h1{font-size:25px;line-height:1.16;margin-bottom:9px}
-        .page-title-row p:last-child{font-size:14px;line-height:1.5}
-        .operational-summary{grid-template-columns:1fr}
-        .operational-summary article{min-height:76px}
-        .operational-summary article+article{border-left:0;border-top:1px solid #cbd5db}
-        .company-workflow{padding:16px 14px}
-        .company-workflow__head h2{font-size:17px}
+        .page-title-row h1{font-size:23px;line-height:1.16;margin-bottom:7px}
+        .page-title-row p:last-child{font-size:13px;line-height:1.45}
+        .operational-summary{grid-template-columns:repeat(2,minmax(0,1fr));box-shadow:none}
+        .operational-summary article{min-height:68px;padding:11px 12px;gap:8px}
+        .operational-summary article+article{border-left:0}
+        .operational-summary article:nth-child(even){border-left:1px solid #cbd5db}
+        .operational-summary article:nth-child(n+3){border-top:1px solid #cbd5db}
+        .operational-summary strong{font-size:20px}
+        .operational-summary span:last-child{font-size:10px;line-height:1.3}
+        .company-workflow{padding:14px 12px;box-shadow:none}
+        .company-workflow__head{margin-bottom:11px}
+        .company-workflow__head h2{font-size:16px}
+        .company-workflow__head p{font-size:12px;line-height:1.45}
         .company-workflow__grid{grid-template-columns:1fr;gap:0}
-        .company-workflow__step{min-height:0;padding:13px}
-        .company-workflow__step.active{padding:12px}
-        .company-workflow__arrow{height:30px;transform:rotate(90deg)}
-        .patient-header,.assessment-topline,.section-heading,.compact-heading{align-items:flex-start;flex-direction:column}
-        .patient-overview,.evidence-section,.validation-card,.source-registry,.limitations,.entry-panel{width:100%;max-width:100%}
+        .company-workflow__step{min-height:0;padding:11px}
+        .company-workflow__step.active{padding:10px}
+        .company-workflow__step strong{font-size:13px}
+        .company-workflow__step span{font-size:11px}
+        .company-workflow__arrow{height:24px;transform:rotate(90deg);font-size:18px}
+        .company-workflow__foot{font-size:11px;line-height:1.4}
+        .patient-header,.assessment-topline,.section-heading,.compact-heading,.page-title-row{align-items:flex-start;flex-direction:column}
+        .patient-overview,.evidence-section,.validation-card,.source-registry,.limitations,.entry-panel{width:100%;max-width:100%;overflow:hidden;box-shadow:none}
+        .patient-header,.entry-panel,.evidence-section,.validation-card,.source-registry,.limitations{padding-left:12px;padding-right:12px}
         .case-form{grid-template-columns:1fr}
         .case-form .checkbox-label{grid-column:1}
-        table{max-width:100%}
+        .form-actions{align-items:stretch;flex-direction:column}
+        .button{width:100%}
+        .timeline,.timeline-wrap,.table-wrap,[class*="table-wrap"],[class*="timeline"]{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+        table{width:100%;max-width:100%;font-size:11px;table-layout:fixed}
+        th,td{padding:7px 5px!important;white-space:normal!important}
+        .criterion-id,.trial-id{font-size:9px}
       }
     </style>
   </head>
